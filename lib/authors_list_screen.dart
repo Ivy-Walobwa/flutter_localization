@@ -24,12 +24,16 @@ class AuthorListScreen extends StatelessWidget {
         title: const Text(LocaleKeys.appTitle).tr(),
       ),
       body: ListView.builder(
-        itemBuilder: (ctx, index) => ListTile(
-          leading: CircleAvatar(
-            backgroundImage: NetworkImage(authors[index].image),
+        itemBuilder: (ctx, index) => Padding(
+          // padding: const EdgeInsets.only(left: 60),
+          padding: const EdgeInsetsDirectional.only(start: 60.0),
+          child: ListTile(
+            leading: CircleAvatar(
+              backgroundImage: NetworkImage(authors[index].image),
+            ),
+            title: Text(authors[index].name),
+            subtitle: Text(authors[index].bio),
           ),
-          title: Text(authors[index].name),
-          subtitle: Text(authors[index].bio),
         ),
         itemCount: authors.length,
       ),
