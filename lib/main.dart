@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
-import 'authors_list_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'authors_list_screen.dart';
+import 'l10n/l10.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  runApp(EasyLocalization(
+    supportedLocales: L10n.all,
+    path: 'assets/l10n',
+    fallbackLocale: L10n.all[0],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -13,12 +23,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
-      home:AuthorListScreen(),
+      localizationsDelegates:context.localizationDelegates ,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
+      home: AuthorListScreen(),
     );
   }
 }
-
-
