@@ -1,4 +1,18 @@
 import 'package:flutter/material.dart';
+import 'l10n/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'author.dart';
+
+final authors = [
+  Author(
+      name: LocaleKeys.AkhenatenName,
+      bio: LocaleKeys.AkhenatenBio,
+      image: "https://images.quotable.dev/profile/400/akhenaten.jpg"),
+  Author(
+      name: LocaleKeys.AlbertName,
+      bio: LocaleKeys.AlbertBio,
+      image: "https://images.quotable.dev/profile/400/albert-schweitzer.jpg")
+];
 
 class AuthorListScreen extends StatelessWidget {
   const AuthorListScreen({Key? key}) : super(key: key);
@@ -7,18 +21,17 @@ class AuthorListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Authors'),
+        title: const Text(LocaleKeys.appTitle).tr(),
       ),
       body: ListView.builder(
         itemBuilder: (ctx, index) => ListTile(
           leading: CircleAvatar(
-            backgroundImage: NetworkImage(
-                "https://images.quotable.dev/profile/400/akhenaten.jpg"),
+            backgroundImage: NetworkImage(authors[index].image),
           ),
-          title: Text('Akhenaten'),
-          subtitle: Text('Akhenaten, known before the fifth year of his reign as Amenhotep IV, was an ancient Egyptian pharaoh of the 18th Dynasty, who ruled for 17 years and died perhaps in 1336 BC or 1334 BC.'),
+          title: Text(authors[index].name).tr(),
+          subtitle: Text(authors[index].bio).tr(),
         ),
-        itemCount: 5,
+        itemCount: authors.length,
       ),
     );
   }
