@@ -5,12 +5,12 @@ import 'author.dart';
 
 final authors = [
   Author(
-      name: LocaleKeys.AkhenatenName,
-      bio: LocaleKeys.AkhenatenBio,
+      name: LocaleKeys.AkhenatenName.tr(),
+      bio: LocaleKeys.AkhenatenBio.tr(),
       image: "https://images.quotable.dev/profile/400/akhenaten.jpg"),
   Author(
-      name: LocaleKeys.AlbertName,
-      bio: LocaleKeys.AlbertBio,
+      name: LocaleKeys.AlbertName.tr(),
+      bio: LocaleKeys.AlbertBio.tr(),
       image: "https://images.quotable.dev/profile/400/albert-schweitzer.jpg")
 ];
 
@@ -28,8 +28,8 @@ class AuthorListScreen extends StatelessWidget {
           leading: CircleAvatar(
             backgroundImage: NetworkImage(authors[index].image),
           ),
-          title: Text(authors[index].name).tr(),
-          subtitle: Text(authors[index].bio).tr(),
+          title: Text(authors[index].name),
+          subtitle: Text(authors[index].bio),
         ),
         itemCount: authors.length,
       ),
