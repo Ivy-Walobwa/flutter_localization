@@ -10,7 +10,7 @@ final authors = [
       image: "https://images.quotable.dev/profile/400/akhenaten.jpg"),
   Author(
       name: LocaleKeys.AlbertName.tr(),
-      bio: LocaleKeys.AlbertBio.tr(),
+      bio: LocaleKeys.AlbertBio.tr(namedArgs: {'nationality': 'Alsatian'}),
       image: "https://images.quotable.dev/profile/400/albert-schweitzer.jpg")
 ];
 
